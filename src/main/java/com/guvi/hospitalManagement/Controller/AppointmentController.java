@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 
 import java.util.List;
 
 @Controller
+@Tag(name = "Appointment Management System", description = "APIs for managing appointments")
 public class AppointmentController {
 
     @Autowired
@@ -23,7 +26,7 @@ public class AppointmentController {
     @Autowired
     private DoctorService doctorService;
 
-
+    @Operation(summary = "View the appointment form")
     @GetMapping("/appointmentForm")
 
     public String appointmentForm(Model model){
@@ -32,7 +35,7 @@ public class AppointmentController {
     }
 
 
-
+    @Operation(summary = "Save a new appointment")
     @PostMapping("/appointmentForm")
     public String saveAppointment(@ModelAttribute("appointment") Appointment appointment,
                                   @RequestParam("doctorId")int doctorId){
@@ -41,7 +44,7 @@ public class AppointmentController {
         appointmentService.addAppointment(appointment);
         return "saveSuccessfully";
     }
-
+    @Operation(summary = "View all doctors")
     @GetMapping("/doctorAppointment")
 
     public String displayAllDoctor(Model model){
@@ -49,7 +52,7 @@ public class AppointmentController {
         model.addAttribute("doctor",doctors);
         return "doctorAppointment";
     }
-
+    @Operation(summary = "View all appointments")
     @GetMapping("/displayAppointment")
 
     public String displayAllAppointment(Model model){
