@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>View Medicine</title>
+</head>
+<body>
+<div class="container mt-4 emp-Container">
+    <div class="nav bg-light p-3 mb-3 rounded">
+        <p class="h4 mb-0">Medicine Details</p>
+    </div>
+    <div class="list mb-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <h3>User List</h3>
+            <a th:href="@{/addMedicine}" class="btn btn-primary">Add Medicines</a>
+        </div>
+    </div>
+    <div class="table-responsive tableList">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Medicine Id</th>
+                <th>MedicineName</th>
+                <th>Dosage</th>
+                <th>Quantiy</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="medicines : ${medicine}">
+                <td th:text="${medicines.Id}"></td>
+                <td th:text="${medicines.MedicineName}"></td>
+                <td th:text="${medicines.dosage}"></td>
+                <td th:text="${medicines.Quantity}"></td>
+                <td>
+                    <a th:href="@{/updateMedicine/{Id}(Id=${medicines.Id})}" class="btn btn-warning btn-sm mr-1">Edit</a>
+                    <a th:href="@{/deleteMedicine/{Id}(Id=${medicines.Id})}" class="btn btn-danger btn-sm mr-1">Remove</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div><br>
+<a href="/home" class="btn btn-primary mt-3">Back to Home</a><br>
+
+</body>
+</html>

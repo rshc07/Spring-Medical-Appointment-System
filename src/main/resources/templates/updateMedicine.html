@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Medication</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-4">Update Medicine</h2>
+
+    <form action="#" th:action="@{/updateMedicine/{Id}(Id=${medicine.Id})}" th:object="${medicine}"
+          method="POST" class="needs-validation" novalidate>
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{Id}" />
+
+        <div class="form-group">
+            <label for="MedicineName">Medicine Name</label>
+            <input type="text" th:field="*{MedicineName}" class="form-control" id="MedicineName" placeholder="Enter Medicine Name" required>
+            <div class="invalid-feedback">
+                Please provide a valid Medicine Name.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dosage">Dosage</label>
+            <input type="text" th:field="*{dosage}" class="form-control" id="dosage" placeholder="Enter Dosage" required>
+            <div class="invalid-feedback">
+                Please provide a valid Dosage.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Quantity">Quantity</label>
+            <input type="email" th:field="*{Quantity}" class="form-control" id="Quantity" placeholder="Enter Quantity" required>
+            <div class="invalid-feedback">
+                Please provide a valid Quantity.
+            </div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Update Medicine</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/viewMedicine}" class="btn btn-secondary">Back to Medicine List</a>
+</div>
+</body>
+</html>

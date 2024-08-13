@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Appointment</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-4">
+<form action="#" th:action="@{/doctorBook/{id}(id=${doctor.doctorId})}" th:object="${doctor}"
+      method="post">
+
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{doctorId}" />
+
+    <div class="form-group">
+        <label for="doctorName">Doctor Name</label>
+        <input type="text" th:field="*{doctorName}" class="form-control" id="doctorName" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="specialization">Specialization</label>
+        <input type="text" th:field="*{specialization}" class="form-control" id="specialization"  readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="consultationFee">Consultation Fee</label>
+        <input type="email" th:field="*{consultationFee}" class="form-control" id="consultationFee" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="availableSlot">Available Slot</label>
+        <input type="text" th:field="*{availableSlot}" class="form-control" id="availableSlot"  readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="availableTime">Available Time</label>
+        <input type="text" th:field="*{availableTime}" class="form-control" id="availableTime"  readonly>
+    </div>
+  </form>
+
+</div>
+
+
+<div class="container mt-5">
+    <h2>Book an Appointment</h2>
+    <form action="/appointmentForm" method="post" th:object="${appointment}" >
+
+        <input type="hidden" class="form-control" th:field="${doctor.doctorId}">
+
+
+        <div class="form-group">
+            <label for="doctor_name">Doctor Name:</label>
+            <input type="text" class="form-control" id="doctor_name" required th:field="*{doctor_name}" placeholder="enter Doctor above mention">
+        </div>
+
+        <div class="form-group">
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" class="form-control" id="appointmentDate" required th:field="*{appointmentDate}" >
+        </div>
+
+        <div class="form-group">
+            <label for="MedicalReason">Medical Reason:</label>
+            <input type="text" class="form-control" id="MedicalReason" required th:field="*{MedicalReason}" placeholder="enter medical reason" >
+        </div>
+
+
+    <button type="submit" class="btn btn-primary">Book</button>
+</form>
+</div>
+<a href="/home" class="btn btn-primary mt-3">Back to Home</a><br>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

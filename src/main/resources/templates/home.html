@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .nav-bar{
+            display:flex;
+        }
+
+        .hp{
+          font-size: 91px;
+          margin-left: 26px;
+        }
+
+        .lo{
+          position: absolute;
+          right: 22px;
+          top: 158px;
+        }
+
+        .links{
+               display: flex;
+               background-color: #B2BEB5;
+               height: 50px;
+        }
+
+        .btn-v1{
+               margin-top: 11px;
+               margin-left: 50px;
+               font-size: 19px;
+               color: maroon;
+        }
+        .btn-add{
+               margin-top: 11px;
+               margin-left: 50px;
+               font-size: 19px;
+               color: maroon;
+        }
+
+        .btn-v2{
+               margin-top: 11px;
+               margin-left: 50px;
+               font-size: 19px;
+               color: maroon;
+        }
+        .btn-v3{
+               margin-top: 11px;
+               margin-left: 50px;
+               font-size: 19px;
+               color: maroon;
+        }
+        .Doc{
+          width:100%;
+          height:740px;
+        }
+    </style>
+</head>
+<body>
+<div class="nav-bar">
+    <img th:src="@{/Image/pharmacy.png}" alt="logo" class="hospitalImg" height="140px">
+    <p class="hp">TATA Hospitals</p>
+</div>
+<div class="lo">
+    <a th:href="@{/logout}" class="btn btn-danger">Logout</a>
+</div>
+    <div class="links">
+        <a th:href="@{/displayDoctor}" class="btn-v1">View Doctors</a><br>
+        <a th:href="@{/doctorAppointment}" class="btn-add">Book Appointment</a><br>
+        <a th:href="@{/displayAppointment}" class="btn-v2">View Appointment</a><br>
+        <a th:href="@{/viewMedicine}" class="btn-v3">View Medicines</a><br>
+    </div>
+    <div class="Img">
+        <img th:src="@{/Image/Doctor.jpg}" alt="logo" class="Doc" >
+    </div>
+</body>
+</html>
