@@ -12,7 +12,7 @@ The Medical Appointment System is a Spring Boot application that allows users to
 - [Configuration](#configuration)
 - [Running the Application](#running-the-application)
 - [API Documentation](#api-documentation)
-- [Endpoints](#endpoints)
+- [API Endpoints](#api-endpoints)
 
 ## Technologies Used
 
